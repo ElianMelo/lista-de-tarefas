@@ -1,38 +1,36 @@
+var ids = 0;
+
 function adicionaTarefa(event) {
     // Verifica se a tecla apertada pelo usuário foi enter
     if(event.which == 13 || event.keyCode == 13){
-        // Pega o valor da tarefa no campo gerador de tarefas,
-        // e transforma em texto e em dados
+        // Pega o valor da tarefa no campo gerador de tarefas e troca o valor do id
         var texto = document.createTextNode(document.getElementById("geradorTarefa").value);
-        var dados = document.getElementById("geradorTarefa").value;
+        ids += 1;
 
         // Limpa o campo do gerador de tarefas
         document.getElementById("geradorTarefa").value = "";
 
-        // Se essa nova tarefa já existe ou for numa o programa é cancelado
-        var valor = document.getElementById(dados);
-        if (valor != null || dados == ""){
-            return null;
-        }
-
         // Cria um input e associa o tipo checkbox a ele
         var tarefa = document.createElement("input");
         tarefa.type = "checkbox";
-        tarefa.name = dados;
-        tarefa.id = dados;
+        tarefa.id = ids;
+        tarefa.className = "estiloCaixa";
 
         // Cria um label que dá um nome ao checkbox
         var nome = document.createElement("label");
-        nome.htmlFor = dados;
+        nome.htmlFor = ids;
+        nome.className = "estiloTexto";
         nome.appendChild(texto);
 
-        //Gera uma quebra de linha
-        var br = document.createElement("br");
+        //Cria uma div
+        var div = document.createElement("div");
+        div.id = ids;
+        div.className = "estiloDiv";
 
-        // Envia para o corpo do programa a tarefa o seu nome e uma quebra de linha
-        document.body.appendChild(tarefa);
-        document.body.appendChild(nome);
-        document.body.appendChild(br);
+        // Envia para o corpo do programa uma div com uma tarefa e o seu nome
+        document.body.appendChild(div);
+        document.getElementById(ids).appendChild(tarefa);
+        document.getElementById(ids).appendChild(nome);
         return false;
     }else{
         return true;
