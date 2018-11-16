@@ -4,28 +4,33 @@ function adicionaTarefa(event) {
     // Verifica se a tecla apertada pelo usuário foi enter
     if(event.which == 13 || event.keyCode == 13){
         // Pega o valor da tarefa no campo gerador de tarefas e troca o valor do id
-        var texto = document.createTextNode(document.getElementById("geradorTarefa").value);
+        var texto = document.getElementById("geradorTarefa").value;
         ids += 1;
+
+        // Evita espaços em branco
+        if(texto == "" || texto == " "){
+            return false;
+        } else {
 
         // Limpa o campo do gerador de tarefas
         document.getElementById("geradorTarefa").value = "";
 
-        // Cria um <label> que leva o nome da tarefa
-        var nomeTarefa = document.createElement("label");
-        nomeTarefa.id = ids;
-        nomeTarefa.className = "estiloTexto";
-        nomeTarefa.appendChild(texto);
-
-        // Cria a div principal
+        // Cria o div que será enviado atribuindo id e estilo
         var divPrincipal = document.createElement("div");
-        divPrincipal.innerHTML = "<span onclick='return excluiTarefa(event);' id=" + ids + "> X </span>";
-        divPrincipal.id = ids;
         divPrincipal.className = "estiloDiv";
+        divPrincipal.id = ids;
 
-        // Envia para o corpo do programa uma div com uma tarefa e o seu nome
+        // Monta a estrutura que será enviada
+        divPrincipal.innerHTML =
+        "<div class='botaoCheck' onclick='return chequeTarefa(event);' id=" + ids + ">\u2713</div>" +
+        "<label class='estiloTexto' id=" + ids + ">" + texto + "</label>" +
+        "<div class='botaoExcluir' onclick='return excluiTarefa(event);' id=" + ids + ">\u00D7</div>";
+
+        // Envia a estrutura
         document.body.appendChild(divPrincipal);
-        document.getElementById(ids).appendChild(nomeTarefa);
+
         return false;
+        }
     }else{
         return true;
     }
@@ -34,4 +39,8 @@ function adicionaTarefa(event) {
 function excluiTarefa(event) {
     excluir = document.getElementById(event.srcElement.id);
     excluir.parentNode.removeChild(excluir);
+}
+
+function chequeTarefa(event) {
+
 }

@@ -1,13 +1,3 @@
-.estiloCheck{
-    width: 10%;
-    display: initial;
-    padding-right: 10px;
-}
-
-.estiloCheck{
-    /* text-decoration: line-through; */
-}
-
 .estiloTexto {
     text-align: center;
     font-size: 25px;
@@ -16,7 +6,7 @@
     word-break: break-all;
 }
 
-.estiloDiv{
+.estiloDiv {
     margin-left: 20%;
     width: 60%;
     padding-top: 5px;
@@ -28,4 +18,30 @@
 
 .estiloDiv:nth-child(odd) {
     background-color: #D3D3D3;
+}
+
+.botaoCheck {
+    font-size: 20px;
+    width: auto;
+    height: auto;
+    display: inline;
+    padding-right: 10px;
+    padding-left: 10px;
+    opacity: 0;
+}
+
+.estiloDiv:hover > .botaoCheck {
+    opacity: 1;
+}
+
+.botaoExcluir {
+    font-size: 30px;
+    width: auto;
+    height: auto;
+    display: inline;
+    opacity: 0;
+}
+
+.estiloDiv:hover > .botaoExcluir {
+    opacity: 1;
 }
