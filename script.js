@@ -6,15 +6,17 @@ function adicionaTarefa(event) {
         // Pega o valor da tarefa no campo gerador de tarefas e aumenta o valor do id
         var texto = document.getElementById("geradorTarefa").value;
         ids += 1;
-
-        // Evita espaços em branco
-        if(texto == "" || texto == " "){
-            return false;
-        } else {
+        texto = texto.trim();
 
         // Limpa o campo do gerador de tarefas
         document.getElementById("geradorTarefa").value = "";
 
+        // Evita espaços em branco
+        if(texto == ""){
+            alert("Campo vazio, insira algum valor");
+            return false;
+        } else {
+            
         // Cria a div que será enviado atribuindo id e estilo
         var divPrincipal = document.createElement("div");
         divPrincipal.className = "estiloDiv";
@@ -24,7 +26,7 @@ function adicionaTarefa(event) {
         divPrincipal.innerHTML =
         "<div class='botaoCheck' onclick='return chequeTarefa(event);' id=" + ids + ">\u2713</div>" +
         "<label class='estiloTexto' id=" + ids + "T" + ">" + texto + "</label>" +
-        "<div class='botaoExcluir' onclick='return excluiTarefa(event);' id=" + ids + ">\u00D7</div>";
+        "<div class='botaoExcluir' onclick='return excluiTarefa(event);' id=" + ids + " align='right'>\u00D7</div>";
 
         // Envia a estrutura
         document.body.appendChild(divPrincipal);
@@ -38,7 +40,6 @@ function adicionaTarefa(event) {
 
 function excluiTarefa(event) {
     // Exclui o elemento clickado
-
     var excluir = document.getElementById(event.srcElement.id + "D");
     excluir.parentNode.removeChild(excluir);
 }

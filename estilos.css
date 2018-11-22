@@ -1,58 +1,67 @@
 html, body {
     cursor: default;
+    font-family: arial;
+}
+
+h1 {
+    color: white;
 }
 
 #geradorTarefa {
-    width: 60%;
+    width: 80%;
     height: 30px;
 }
 
+/* Estilo do texto */
 
 .estiloTexto {
+    color: black;
     text-align: center;
     font-size: 25px;
-    width: 90%;
+    width: 85%;
     display: inline-flex;
     word-break: break-all;
 }
 
 .estiloTextoAlterado {
+    color: white;
     text-decoration: line-through;
     text-align: center;
     font-size: 25px;
-    width: 90%;
+    width: 85%;
     display: inline-flex;
     word-break: break-all;
 }
 
+/* Estilo da div */
+
 .estiloDiv {
+    color: black;
     margin-left: 20%;
     width: 60%;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: #FFFFFF;
-    border-style: solid;
-    border-width: 1px;
+    background-color: #F1FFE7; /* Cor padrão */
 }
 
 .estiloDivAlterado {
+    color: white;
     margin-left: 20%;
     width: 60%;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: #BEBEBE !important;
-    border-style: solid;
-    border-width: 1px;
+    background-color: #8D86C9 !important; /* Tarefa checada */
 }
 
 .estiloDiv:hover {
-    background-color: #BEBEBE !important;
+    background-color: #8D86C9 !important; /* Mouse sobre a tarefa */
 }
-
 
 .estiloDiv:nth-child(odd) {
-    background-color: #D3D3D3;
+    background-color: #C2E7DA; /* Cor secundária */
 }
+
+/* Estilo do botão check */
 
 .botaoCheck {
     font-size: 20px;
@@ -78,17 +87,29 @@ html, body {
     opacity: 1;
 }
 
+/* Estilo do botão excluir*/
+
 .botaoExcluir {
     font-size: 30px;
+    text-align: center;
+    margin-top: -0.7%;
+    padding-top: 0.6%;
+    padding-bottom: 0.1%;
+    padding-left: 1.7%;
+    padding-right: 1.7%;
+    float: right;
     width: auto;
     height: auto;
-    display: inline;
+    display: inline-block;
     opacity: 0;
+    color: white !important;
 }
 
 .estiloDiv:hover > .botaoExcluir {
     opacity: 1;
+    background-color: red;
 }
 .estiloDivAlterado:hover > .botaoExcluir {
     opacity: 1;
+    background-color: red;
 }
